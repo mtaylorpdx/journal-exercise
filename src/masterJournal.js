@@ -5,8 +5,12 @@ export function MasterJournal() {
 MasterJournal.prototype.addJournalEntry = function(entry) {
   entry.id =this.assignId();
   this.entries.push(entry);
-}
+};
 MasterJournal.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
-}
+};
+
+// MasterJournal.prototype.displayList = function() {
+//   $("#entryList").html("<li>" + this.currentId + " " + this.entries + "</li>")
+// }

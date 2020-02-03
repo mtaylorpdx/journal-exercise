@@ -4,7 +4,7 @@ import { MasterJournal } from './masterJournal';
 import './styles.css';
 
 
-var masterJournal = new MasterJournal
+var masterJournal = new MasterJournal;
 
 $(document).ready(function() {
   $("#journal").submit(function(event) {
@@ -14,7 +14,11 @@ $(document).ready(function() {
     var journalEntry = new JournalEntry();
     journalEntry.setTitle(title);
     journalEntry.setEntry(text);
+    journalEntry.findVowel(journalEntry.entry);
+    journalEntry.findConsonant(journalEntry.entry);
+    journalEntry.createTease(journalEntry.entry);
     masterJournal.addJournalEntry(journalEntry);
-    console.log(masterJournal);
+    // masterJournal.displayList();
+    console.log(journalEntry);
   });
 });
