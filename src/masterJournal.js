@@ -11,6 +11,22 @@ MasterJournal.prototype.assignId = function() {
   return this.currentId;
 };
 
-// MasterJournal.prototype.displayList = function() {
-//   $("#entryList").html("<li>" + this.currentId + " " + this.entries + "</li>")
-// }
+export function displayJournalDetails(journalEntryToDisplay) {
+  var entryList = $("ul#entries");
+  var htmlForEntryInfo = "";
+  journalEntryToDisplay.entries.forEach(function(journalEntry){
+    htmlForEntryInfo += "<li id=" + journalEntry.id + "><span class='day'>" + journalEntry.title + "</span> " + journalEntry.entry + " Vowels in entry: " + journalEntry.vowelTotal + " Consonants in entry: " + journalEntry.consonantTotal +  "</li>";
+  });
+  entryList.html(htmlForEntryInfo)
+}
+
+MasterJournal.prototype.findId = function(id) {
+  for (var i=0; i < this.entries.length; i++) {
+    if (this.entries[i]) {
+      if (this.entries[i].id == id) {
+        return this.entries[i];
+      }
+    }
+  }
+  return false;
+};

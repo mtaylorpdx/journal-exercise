@@ -1,6 +1,6 @@
 import { JournalEntry } from './journalEntry';
 import { MasterJournal } from './masterJournal';
-
+import { displayJournalDetails } from './masterJournal';
 import './styles.css';
 
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
     journalEntry.findConsonant(journalEntry.entry);
     journalEntry.createTease(journalEntry.entry);
     masterJournal.addJournalEntry(journalEntry);
-    // masterJournal.displayList();
+    displayJournalDetails(masterJournal)
     console.log(journalEntry);
   });
 });
